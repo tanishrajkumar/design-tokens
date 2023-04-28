@@ -32,7 +32,6 @@ function getPlatformSpecificFiles({ source, platform, format }) {
       format,
       destination: path.join(`${file.split(".")[0]}/${category}.${platform}`),
       options: {
-        outputReferences: false,
         fileHeader: "myCustomHeader",
       },
       filter: {
