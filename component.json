@@ -1,0 +1,36 @@
+{
+  "button": {
+    "background": {
+      "value": "{color.cyan.100}",
+      "type": "color"
+    },
+    "color": {
+      "value": "{color.base.black}",
+      "type": "color"
+    },
+    "hover": {
+      "background": {
+        "value": "{color.gray.400}",
+        "type": "color"
+      },
+      "color": {
+        "value": "{color.cyan.50}",
+        "type": "color"
+      }
+    },
+    "disabled": {
+      "background": {
+        "value": "{color.gray.200}",
+        "type": "color"
+      },
+      "color": {
+        "value": "{color.gray.50}",
+        "type": "color"
+      }
+    },
+    "boxshadow": {
+      "value": "{shadow.drop}",
+      "type": "boxShadow"
+    }
+  }
+}

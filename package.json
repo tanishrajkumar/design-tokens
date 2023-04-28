@@ -1,0 +1,19 @@
+{
+  "name": "design-system-tokens",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "index.js",
+  "scripts": {
+    "transform": "node token-transformer tokens output.json --expandTypography=true --expandShadow=true --expandComposition=true --expandBorder=false --preserveRawValue=false resolveReferences=true",
+    "dictionary": "rm -rf build && style-dictionary build --config build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "style-dictionary": "^3.7.2",
+    "token-transformer": "^0.0.32"
+  },
+  "devDependencies": {
+    "style-dictionary-utils": "^1.1.0"
+  }
+}
