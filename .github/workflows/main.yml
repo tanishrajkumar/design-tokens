@@ -6,11 +6,15 @@ on:
       - "tokens/**/*.json"
 
 jobs:
-  print_message:
+  install_and_run:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print message
-        run: echo "A JSON file has been changed"
+      - name: Install Node modules
+        run: npm install
+
+      - name: Run npm command
+        run: npm run dictionary
