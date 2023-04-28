@@ -1,3 +1,4 @@
+delete require.cache;
 const utils = require("./build-utils");
 const StyleDictionary = require("style-dictionary-utils");
 
@@ -38,6 +39,5 @@ const config = {
 };
 
 const StyleDictionaryExtended = StyleDictionary.extend(config);
-StyleDictionaryExtended.cleanAllPlatforms();
 StyleDictionaryExtended.buildAllPlatforms();
 utils.createRootIndex();
