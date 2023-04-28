@@ -29,7 +29,7 @@ const trasnformsList = [
 const config = {
   source: ["tokens/**/*.json"],
   platforms: {
-    css: {
+    web: {
       transforms: trasnformsList,
       buildPath: "build/",
       files: scssFileConfig,
@@ -38,5 +38,6 @@ const config = {
 };
 
 const StyleDictionaryExtended = StyleDictionary.extend(config);
+StyleDictionaryExtended.cleanAllPlatforms();
 StyleDictionaryExtended.buildAllPlatforms();
 utils.createRootIndex();
