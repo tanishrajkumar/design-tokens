@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "transform": "node token-transformer tokens output.json --expandTypography=true --expandShadow=true --expandComposition=true --expandBorder=false --preserveRawValue=false resolveReferences=true",
-    "dictionary": "rm -rf build && style-dictionary build --config build.js"
+    "dictionary": "rm -rf build && style-dictionary build --config build.js --verbose"
   },
   "author": "",
   "license": "ISC",
