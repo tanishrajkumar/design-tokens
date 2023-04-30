@@ -1,4 +1,3 @@
-delete require.cache;
 const utils = require("./build-utils");
 const StyleDictionary = require("style-dictionary-utils");
 
@@ -30,7 +29,7 @@ const trasnformsList = [
 const config = {
   source: ["tokens/**/*.json"],
   platforms: {
-    web: {
+    scss: {
       transforms: trasnformsList,
       buildPath: "build/",
       files: scssFileConfig,
@@ -38,6 +37,7 @@ const config = {
   },
 };
 
-const StyleDictionaryExtended = StyleDictionary.extend(config);
-StyleDictionaryExtended.buildAllPlatforms();
+// const StyleDictionaryExtended = StyleDictionary.extend(config);
+// console.log("Hello", StyleDictionaryExtended.options);
+StyleDictionary.extend(config).buildAllPlatforms();
 utils.createRootIndex();
