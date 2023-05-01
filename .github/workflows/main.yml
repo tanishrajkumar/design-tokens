@@ -52,5 +52,5 @@ jobs:
           commit-message: "Automated pull request"
           title: "Automated pull request"
           body: "This pull request was automatically created by a GitHub Actions workflow."
-          head: style-dictionary
+          branch: style-dictionary
           base: main
