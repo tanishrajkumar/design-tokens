@@ -1,9 +1,7 @@
 name: Figma Design Tokens Workflow
 
 on:
-  push:
-    paths:
-      - "tokens/**/*.json"
+  workflow_dispatch:
 
 jobs:
   install_and_run:
