@@ -37,7 +37,7 @@ const config = {
   },
 };
 
-// const StyleDictionaryExtended = StyleDictionary.extend(config);
-// console.log("Hello", StyleDictionaryExtended.options);
-StyleDictionary.extend(config).buildAllPlatforms();
+const StyleDictionaryExtended = StyleDictionary.extend(config);
+StyleDictionaryExtended.cleanAllPlatforms();
+StyleDictionaryExtended.buildAllPlatforms();
 utils.createRootIndex();
