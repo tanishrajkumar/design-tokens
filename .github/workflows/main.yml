@@ -31,7 +31,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: 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
-          branch: branch-dictionary
+          branch: main
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
