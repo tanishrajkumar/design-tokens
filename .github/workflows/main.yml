@@ -8,7 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      issues: write
+      packages: write
+      pull-requests: write
       repository-projects: write
+      security-events: write
+      statuses: write
 
     steps:
       - name: Checkout code
@@ -34,4 +43,14 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: style-dictionary
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Automated pull request"
+          title: "Automated pull request"
+          body: "This pull request was automatically created by a GitHub Actions workflow."
+          head: style-dictionary
+          base: main
