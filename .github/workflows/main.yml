@@ -31,12 +31,12 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           branch: branch-dictionary
-          github_token: ${{ secrets.TOKEN }}
+          github_token: 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
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.TOKEN }}
+          token: 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
           commit-message: "Automated pull request"
           title: "Automated pull request"
           body: "This pull request was automatically created by a GitHub Actions workflow."
