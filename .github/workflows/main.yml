@@ -16,3 +16,21 @@ jobs:
 
       - name: Run npm command
         run: npm run build
+
+      - - name: Configure Git
+        run: |
+          git config user.email "tanishraj.k@bsfdv.com"
+          git config user.name "tanishrajkumar"
+
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Figma design token changes"
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Automated build
+          title: Automated build
+          branch: main
+
