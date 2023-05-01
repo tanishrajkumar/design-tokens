@@ -17,7 +17,7 @@ jobs:
       - name: Run npm command
         run: npm run build
 
-      - - name: Configure Git
+      - name: Configure Git
         run: |
           git config user.email "tanishraj.k@bsfdv.com"
           git config user.name "tanishrajkumar"
@@ -33,4 +33,3 @@ jobs:
           commit-message: Automated build
           title: Automated build
           branch: main
-
