@@ -25,7 +25,13 @@ jobs:
       - name: Commit changes
         run: |
           git add .
-          git commit -m "Figma design token changes"
+          git commit -m "Automated build"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: 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
+          branch: branch-dictionary
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
@@ -33,3 +39,4 @@ jobs:
           commit-message: Automated build
           title: Automated build
           branch: branch-dictionary
+          token: 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
