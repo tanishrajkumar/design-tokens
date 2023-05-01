@@ -7,6 +7,18 @@ jobs:
   install_and_run:
     runs-on: ubuntu-latest
 
+    permissions:
+      actions: read|write|none
+      checks: read|write|none
+      contents: read|write|none
+      deployments: read|write|none
+      issues: read|write|none
+      packages: read|write|none
+      pull-requests: read|write|none
+      repository-projects: read|write|none
+      security-events: read|write|none
+      statuses: read|write|none
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -19,8 +31,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
+          git config user.email "tanishraj.k@bsfdv.com"
+          git config user.name "tanishrajkumar"
 
       - name: Commit changes
         run: |
