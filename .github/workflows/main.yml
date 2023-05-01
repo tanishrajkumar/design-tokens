@@ -28,10 +28,18 @@ jobs:
           git commit -m "Automated build"
           git push
 
+      - name: Push changes to branch
+        uses: ad-m/github-push-action@master
+        with:
+          branch: branch-dictionary
+          github_token: ${{ secrets.TOKEN }}
+
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: Automated build
-          title: Automated build
-          branch: branch-dictionary
-          github_token: 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
+          token: ${{ secrets.TOKEN }}
+          commit-message: "Automated pull request"
+          title: "Automated pull request"
+          body: "This pull request was automatically created by a GitHub Actions workflow."
+          head: branch-dictionary
+          base: main
