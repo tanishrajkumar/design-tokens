@@ -32,4 +32,4 @@ jobs:
         with:
           commit-message: Automated build
           title: Automated build
-          branch: main
+          branch: branch-dictionary
