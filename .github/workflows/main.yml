@@ -15,3 +15,13 @@ jobs:
 
       - name: Run npm command
         run: npm run build
+
+      - name: Commit and Push and Create PR
+        uses: golfzaptw/action-commit-push-pr
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PREFIX_BRANCHES: "update"
+          DEFAULT_BRANCHES: "main"
+          COMMIT_MESSAGE: "update value"
+          TITLE_PR: "Design Tokens Updated Values"
+          BODY_PR: "Design token has been changed."
