@@ -17,7 +17,7 @@ jobs:
         run: npm run build
 
       - name: Commit and Push and Create PR
-        uses: golfzaptw/action-commit-push-pr@1.0.2
+        uses: golfzaptw/action-commit-push-pr
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           PREFIX_BRANCHES: "update"
