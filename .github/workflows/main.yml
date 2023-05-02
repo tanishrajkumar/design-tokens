@@ -1,14 +1,10 @@
-name: Figma Design Tokens Workflow
+name: Design Tokens Workflow
 
-on:
-  workflow_dispatch:
+on: push
 
 jobs:
-  install_and_run:
+  install_package_and_build:
     runs-on: ubuntu-latest
-
-    permissions:
-      repository-projects: write
 
     steps:
       - name: Checkout code
@@ -19,19 +15,3 @@ jobs:
 
       - name: Run npm command
         run: npm run build
-
-      - name: Configure Git
-        run: |
-          git config user.email "tanishraj.k@bsfdv.com"
-          git config user.name "tanishrajkumar"
-
-      - name: Commit changes
-        run: |
-          git add .
-          git commit -m "Automated build"
-
-      - name: Push changes to branch
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
