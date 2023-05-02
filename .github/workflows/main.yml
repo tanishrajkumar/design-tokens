@@ -1,10 +1,22 @@
-name: Design Tokens Workflow
+name: Figma Design Tokens Workflow
 
 on: push
 
 jobs:
-  install_package_and_build:
+  install_and_run:
     runs-on: ubuntu-latest
+
+    permissions:
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      issues: write
+      packages: write
+      pull-requests: write
+      repository-projects: write
+      security-events: write
+      statuses: write
 
     steps:
       - name: Checkout code
@@ -16,12 +28,18 @@ jobs:
       - name: Run npm command
         run: npm run build
 
-      - name: Commit and Push and Create PR
-        uses: golfzaptw/action-commit-push-pr@1.0.2
+      - name: Configure Git
+        run: |
+          git config user.email "tanishraj.k@bsfdv.com"
+          git config user.name "tanishrajkumar"
+
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Automated build"
+
+      - name: Push changes to branch
+        uses: ad-m/github-push-action@master
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PREFIX_BRANCHES: "update"
-          DEFAULT_BRANCHES: "main"
-          COMMIT_MESSAGE: "update value"
-          TITLE_PR: "Design Tokens Updated Values"
-          BODY_PR: "Design token has been changed."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: style-dictionary
