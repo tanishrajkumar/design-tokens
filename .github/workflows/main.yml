@@ -1,23 +1,10 @@
-name: Figma Design Tokens Workflow
+name: Design Tokens Workflow
 
-on:
-  workflow_dispatch:
+on: push
 
 jobs:
-  install_and_run:
+  install_package_and_build:
     runs-on: ubuntu-latest
-
-    permissions:
-      actions: write
-      checks: write
-      contents: write
-      deployments: write
-      issues: write
-      packages: write
-      pull-requests: write
-      repository-projects: write
-      security-events: write
-      statuses: write
 
     steps:
       - name: Checkout code
@@ -28,28 +15,3 @@ jobs:
 
       - name: Run npm command
         run: npm run build
-
-      - name: Configure Git
-        run: |
-          git config user.email "tanishraj.k@bsfdv.com"
-          git config user.name "tanishrajkumar"
-
-      - name: Commit changes
-        run: |
-          git add .
-          git commit -m "Automated build"
-
-      - name: Push changes to branch
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: style-dictionary
-
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Automated pull request"
-          title: "Automated pull request"
-          body: "This pull request was automatically created by a GitHub Actions workflow."
-          base: main
