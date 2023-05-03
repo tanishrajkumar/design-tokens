@@ -33,7 +33,7 @@ jobs:
 
       - name: Set up Git user
         run: |
-          echo `My name is ${{ github.actor }}`
+          echo `My name is ${{ github.actor }} and github URL is https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git`
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git remote set-url origin https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
