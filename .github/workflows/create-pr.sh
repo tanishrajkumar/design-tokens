@@ -28,6 +28,8 @@ git commit -m "Add new changes"
 # Set the remote URL using the access token
 REPO_OWNER=$(git config --get remote.origin.url | sed -E 's/.*:([^/]+)\/.*/\1/')
 REPO_NAME=$(git config --get remote.origin.url | sed -E 's/.*\/([^/]+)\.git/\1/')
+echo "REPO_OWNDER = $REPO_OWNER"
+echo "REPO_NAME = $REPO_NAME"
 git remote set-url origin https://${GH_PERSONAL_ACCESS_TOKEN}@github.com/${REPO_OWNER}/${REPO_NAME}.git
 
 # Push the new branch
