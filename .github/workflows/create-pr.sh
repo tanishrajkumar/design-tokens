@@ -27,5 +27,5 @@ git remote set-url origin https://${GH_TOKEN}@github.com/tanishrajkumar/design-t
 git push origin $NEW_BRANCH_NAME
 
 # # Create a pull request using 'gh'
-# gh auth login --with-token <<< "${GH_TOKEN}"
-# gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $NEW_BRANCH_NAME
+gh auth login --with-token <<< "${GH_TOKEN}"
+gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $NEW_BRANCH_NAME
