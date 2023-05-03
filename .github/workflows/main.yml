@@ -46,9 +46,9 @@ jobs:
       - name: Workflow Status
         run: |
           if [ "${{ needs.install_package_and_build.result }}" == "success" ]; then
-            echo "SLACK_STATUS=Build succeeded"
+            echo "SLACK_MESSAGE+=(Build succeeded)"
           else
-            echo "SLACK_STATUS=Build failed"
+            echo "SLACK_MESSAGE=(Build failed)"
           fi
 
       - name: Slack Notification
