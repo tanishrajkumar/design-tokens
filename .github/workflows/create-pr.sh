@@ -20,12 +20,12 @@ git checkout -b $NEW_BRANCH_NAME
 git add .
 git commit -m "Add new changes"
 
-# Set the remote URL using the access token
-git remote set-url origin https://${GH_TOKEN}@github.com/${GIT_USER_NAME}/design-tokens.git
+# # Set the remote URL using the access token
+# git remote set-url origin https://${GH_TOKEN}@github.com/${GIT_USER_NAME}/design-tokens.git
 
-# Push the new branch
-git push origin $NEW_BRANCH_NAME
+# # Push the new branch
+# git push -u origin $NEW_BRANCH_NAME
 
-# Create a pull request using 'gh'
+# # Create a pull request using 'gh'
 # gh auth login --with-token <<< "${GH_TOKEN}"
-gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $NEW_BRANCH_NAME
+# gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $NEW_BRANCH_NAME
