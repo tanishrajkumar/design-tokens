@@ -1,7 +1,7 @@
 #!/bin/bash
 
 env:
-    GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+    GH_TOKEN: ${{ github.token }}
 
 # Set your GitHub username and email
 GIT_USER_NAME="tanishrajkumar"
@@ -26,7 +26,9 @@ git add .
 git commit -m "Add new changes"
 
 # Set the remote URL using the access token
-git remote set-url origin https://${GH_PERSONAL_ACCESS_TOKEN}@github.com/$(git config --get remote.origin.url | sed 's/.*@\(.*\)/\1/')
+REPO_OWNER=$(git config --get remote.origin.url | sed -E 's/.*:([^/]+)\/.*/\1/')
+REPO_NAME=$(git config --get remote.origin.url | sed -E 's/.*\/([^/]+)\.git/\1/')
+git remote set-url origin https://${GH_PERSONAL_ACCESS_TOKEN}@github.com/${REPO_OWNER}/${REPO_NAME}.git
 
 # Push the new branch
 git push origin $NEW_BRANCH_NAME
