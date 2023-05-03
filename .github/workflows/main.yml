@@ -35,18 +35,18 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
-    - name: Create new branch
-      run: |
-        git checkout -b new-feature-branch
-        git add .
-        git commit -m "Add new changes"
-        git push origin new-feature-branch
+      - name: Create new branch
+        run: |
+          git checkout -b new-feature-branch
+          git add .
+          git commit -m "Add new changes"
+          git push origin new-feature-branch
 
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        title: "New changes"
-        body: "This PR includes new changes."
-        branch: "new-feature-branch"
-        base: "main"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "New changes"
+          body: "This PR includes new changes."
+          branch: "new-feature-branch"
+          base: "main"
