@@ -5,10 +5,10 @@ on:
   push:
     branches:
       - figma_tokens
-      - main
+      - style-dictionary
 
 jobs:
-  install_and_run:
+  install_package_and_build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
