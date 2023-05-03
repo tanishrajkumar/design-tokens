@@ -1,6 +1,7 @@
 name: Design Tokens Workflow
 
 on:
+  workflow_dispatch:
   push:
     branches: figma_tokens
 
@@ -25,4 +26,3 @@ jobs:
 
       - name: Run npm command
         run: npm run build
-        
