@@ -24,7 +24,7 @@ git commit -m "Add new changes"
 git remote set-url origin git@github.com:${GH_TOKEN}/design-tokens.git
 
 # # Push the new branch
-# git push -u origin $NEW_BRANCH_NAME
+git push -u origin $NEW_BRANCH_NAME
 
 # # Create a pull request using 'gh'
 # gh auth login --with-token <<< "${GH_TOKEN}"
