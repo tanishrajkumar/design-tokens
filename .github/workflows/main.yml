@@ -34,16 +34,15 @@ jobs:
 
       - name: Set up Git user
         run: |
-          echo `My name is ${{ secrets.REPO_ACCESS_TOKEN }} and github URL is https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git`
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git remote set-url origin https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Create new branch
         run: |
           git checkout -b new-feature-branch
           git add .
           git commit -m "Add new changes"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.REPO_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin new-feature-branch
 
       - name: Create Pull Request
