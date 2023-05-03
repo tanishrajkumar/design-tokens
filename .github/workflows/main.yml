@@ -34,5 +34,4 @@ jobs:
 
       - name: Set up Git user
         run: |
-          chmod +x create-pr.sh
-          create-pr.sh
+          source/.github/workflows/create-pr.sh
