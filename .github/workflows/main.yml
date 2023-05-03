@@ -34,6 +34,7 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git remote set-url origin https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Create new branch
         run: |
@@ -45,7 +46,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           title: "New changes"
           body: "This PR includes new changes."
           branch: "new-feature-branch"
