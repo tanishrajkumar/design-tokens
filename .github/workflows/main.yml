@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - figma_tokens
+      - main
 
 jobs:
   install_and_run:
