@@ -52,6 +52,12 @@ jobs:
           fi
 
       - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "key": "value",
+              "foo": "bar"
+            }
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
