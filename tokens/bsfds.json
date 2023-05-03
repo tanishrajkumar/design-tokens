@@ -2,7 +2,7 @@
   "color": {
     "base": {
       "white": {
-        "value": "#ffffff",
+        "value": "#white",
         "type": "color"
       },
       "concrete": {
