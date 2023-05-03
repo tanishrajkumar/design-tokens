@@ -21,13 +21,10 @@ git add .
 git commit -m "Add new changes"
 
 # # Set the remote URL using the access token
-# echo "=========== https://${GH_TOKEN}@github.com/"
-# git remote set-url origin https://${GH_TOKEN}@github.com/tanishrajkumar/design-tokens/
+git remote set-url origin https://${GH_TOKEN}@github.com/tanishrajkumar/design-tokens/
 
 # # Push the new branch
-REPO_URL=$(git config --get remote.origin.url)
-REPO_URL_WITH_TOKEN=${REPO_URL/https:\/\//https://${GH_TOKEN}@}
-git push $REPO_URL_WITH_TOKEN $NEW_BRANCH_NAME
+git push origin $NEW_BRANCH_NAME
 
 # # Create a pull request using 'gh'
 # gh auth login --with-token <<< "${GH_TOKEN}"
