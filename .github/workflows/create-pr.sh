@@ -1,17 +1,13 @@
 #!/bin/bash
 
-# Set your GitHub username and email
-GIT_USER_NAME="tanishrajkumar"
-GIT_USER_EMAIL="tanishraj.k@bsfdv.com"
-
 # Set the new branch name and PR title
 NEW_FEATURE_BRANCH="new-feature-branch"
 PR_TITLE="New changes"
 PR_BODY="Figma tokens has been updated"
 
 # Configure Git
-git config --global user.name "$GIT_USER_NAME"
-git config --global user.email "$GIT_USER_EMAIL"
+git config --global user.name "${GH_USER_NAME}"
+git config --global user.email "${GH_USER_EMAIL}"
 
 # Create a new branch
 git checkout -b $NEW_FEATURE_BRANCH
