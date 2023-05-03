@@ -5,7 +5,7 @@ const path = require("path");
 const customFileHeader = {
   name: "myCustomHeader",
   fileHeader: (defaultMessage) => {
-    return [...defaultMessage, "Author - Tanishraj"];
+    return ["Do not edit directly", "Author - Tanishraj"];
   },
 };
 
@@ -70,9 +70,7 @@ function createRootIndex() {
   }
 
   const imports = readFiles(ROOT_DIR);
-  imports.unshift(
-    `// Do not edit directly \n// Generated on Thu, 27 Apr 2023 17:48:18 GMT \n// Author - Tanishraj\n`
-  );
+  imports.unshift(`// Do not edit directly \n// Author - Tanishraj\n`);
   fs.writeFileSync(ROOT_INDEX_PATH, imports.join("\n"));
 }
 
