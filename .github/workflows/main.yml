@@ -37,3 +37,8 @@ jobs:
           bash .github/workflows/create-pr.sh
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
