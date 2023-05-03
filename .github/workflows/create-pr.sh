@@ -7,6 +7,7 @@ GIT_USER_EMAIL="tanishraj.k@bsfdv.com"
 # Set the new branch name and PR title
 NEW_BRANCH_NAME="new-feature-branch"
 PR_TITLE="New changes"
+PR_BODY="Figma tokens has been updated"
 
 # Configure Git
 git config --global user.name "$GIT_USER_NAME"
@@ -27,4 +28,4 @@ git push origin $NEW_BRANCH_NAME
 
 # Create a pull request using 'gh'
 gh auth login --with-token <<< "${GH_TOKEN}"
-gh pr create --title "$PR_TITLE" --base main --head $NEW_BRANCH_NAME
+gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $NEW_BRANCH_NAME
