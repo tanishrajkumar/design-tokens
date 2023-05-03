@@ -38,6 +38,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
 
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    needs: install_package_and_build
+    steps:
+      - name: Workflow Status
+        run: |
+          if [ "${{ needs.build.result }}" == "success" ]; then
+            echo "SLACK_MESSAGE=Build succeeded" >> $GITHUB_ENV
+          else
+            echo "SLACK_MESSAGE=Build failed" >> $GITHUB_ENV
+          fi
+
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
