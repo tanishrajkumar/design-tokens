@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rmdir build
+rm -rf build
 
 # Set your GitHub username and email
 GIT_USER_NAME="tanishrajkumar"
