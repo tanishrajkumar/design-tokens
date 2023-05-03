@@ -2,7 +2,7 @@
 
 # Set the new branch name and PR title
 NEW_FEATURE_BRANCH="new-feature-branch"
-PR_TITLE= ${PR_TITLE}
+PR_TITLE="New changes"
 PR_BODY="Figma tokens has been updated"
 
 # Configure Git
