@@ -4,9 +4,6 @@
 GIT_USER_NAME="tanishrajkumar"
 GIT_USER_EMAIL="tanishraj.k@bsfdv.com"
 
-# Set your GitHub Personal Access Token
-GH_TOKEN="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"
-
 # Set the new branch name and PR title
 NEW_BRANCH_NAME="new-feature-branch"
 PR_TITLE="New changes"
@@ -27,7 +24,7 @@ REPO_OWNER=$(git config --get remote.origin.url | sed -E 's/.*:([^/]+)\/.*/\1/')
 REPO_NAME=$(git config --get remote.origin.url | sed -E 's/.*\/([^/]+)\.git/\1/')
 echo "=============REPO_OWNDER = $REPO_OWNER"
 echo "REPO_NAME = $REPO_NAME"
-git remote set-url origin https://${GH_TOKEN}@github.com/${REPO_OWNER}/${REPO_NAME}.git
+git remote set-url origin $(git config --get remote.origin.url | sed -E 's/.*:([^/]+)\/.*/\1/')
 
 # Push the new branch
 git push origin $NEW_BRANCH_NAME
