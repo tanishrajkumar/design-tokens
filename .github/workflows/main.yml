@@ -1,45 +1,28 @@
-name: Figma Design Tokens Workflow
+name: Design Tokens Workflow
 
-on: push
+on:
+  push:
+    branches: figma_tokens
 
 jobs:
   install_and_run:
     runs-on: ubuntu-latest
-
-    permissions:
-      actions: write
-      checks: write
-      contents: write
-      deployments: write
-      issues: write
-      packages: write
-      pull-requests: write
-      repository-projects: write
-      security-events: write
-      statuses: write
+    strategy:
+      matrix:
+        node-version: [16.14.0]
 
     steps:
-      - name: Checkout code
+      - name: Check out repository code
         uses: actions/checkout@v2
 
-      - name: Install Node modules
-        run: npm install
+      - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+      run: npm ci
 
       - name: Run npm command
         run: npm run build
-
-      - name: Configure Git
-        run: |
-          git config user.email "tanishraj.k@bsfdv.com"
-          git config user.name "tanishrajkumar"
-
-      - name: Commit changes
-        run: |
-          git add .
-          git commit -m "Automated build"
-
-      - name: Push changes to branch
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+        
