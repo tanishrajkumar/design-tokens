@@ -21,7 +21,6 @@ git add .
 git commit -m "Add new changes"
 
 # Set the remote URL using the access token
-echo "==========${GH_TOKEN}"
 git remote set-url origin https://${GH_TOKEN}@github.com/${GIT_USER_NAME}/design-tokens.git
 
 # Push the new branch
