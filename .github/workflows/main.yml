@@ -53,5 +53,7 @@ jobs:
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
+        status: ${{ job.status }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
