@@ -45,10 +45,10 @@ jobs:
     steps:
       - name: Workflow Status
         run: |
-          if [ "${{ needs.build.result }}" == "success" ]; then
-            echo "SLACK_MESSAGE=Build succeeded" >> $GITHUB_ENV
+          if [ "${{ needs.install_package_and_build.result }}" == "success" ]; then
+            echo "SLACK_STATUS=Build succeeded"
           else
-            echo "SLACK_MESSAGE=Build failed" >> $GITHUB_ENV
+            echo "SLACK_STATUS=Build failed"
           fi
 
       - name: Slack Notification
