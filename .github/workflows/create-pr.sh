@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rmdir build
+
 # Set your GitHub username and email
 GIT_USER_NAME="tanishrajkumar"
 GIT_USER_EMAIL="tanishraj.k@bsfdv.com"
