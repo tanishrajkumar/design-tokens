@@ -60,4 +60,4 @@ jobs:
               "foo": "bar"
             }
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
