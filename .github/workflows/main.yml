@@ -3,10 +3,8 @@ name: Design Tokens Workflow
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-      - figma-tokens
-      - style-dictionary
+    paths:
+      - "tokens/**"
 
 jobs:
   install_package_and_build:
