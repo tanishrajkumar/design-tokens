@@ -32,7 +32,9 @@ jobs:
       - name: Run npm command
         run: npm run build
 
-      - name: Set up Git user
-        run: .github/workflows/create-pr.sh
+      - name: Set up Git user and create PR
+        run: |
+          chmod +x .github/workflows/create-pr.sh
+          bash .github/workflows/create-pr.sh
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
