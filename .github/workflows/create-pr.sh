@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Set your GitHub username and email
+GIT_USER_NAME="tanishrajkumar"
+GIT_USER_EMAIL="tanishraj.k@bsfdv.com"
+
+# Set the new branch name and PR title
+CURRENT_BRANCH="style-dictionary"
+PR_TITLE="New changes"
+PR_BODY="Figma tokens has been updated"
+
+# Configure Git
+git config --global user.name "$GIT_USER_NAME"
+git config --global user.email "$GIT_USER_EMAIL"
+
+# Create a new branch
+git checkout $CURRENT_BRANCH
+
+# Add and commit changes
+git add .
+git commit -m "Add new changes"
+
+# Set the remote URL using the access token
+git remote set-url origin https://${GH_TOKEN}@github.com/tanishrajkumar/design-tokens/
+
+# Push the new branch
+git pull origin main
+git push origin $CURRENT_BRANCH
+
+# Create a pull request using 'gh'
+gh auth login --with-token <<< "${GH_TOKEN}"
+gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $CURRENT_BRANCH
+
+# merge the pull request
+PR_NUMBER=$(gh pr list --state open --base main --head "$(git symbolic-ref --short HEAD)" --json number -q '.[0].number')
+echo "Pull request number: $PR_NUMBER"
+gh pr merge $PR_NUMBER --squash
