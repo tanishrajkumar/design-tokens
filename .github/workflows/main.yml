@@ -16,8 +16,8 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
         with:
-        ref: main
-        fetch-depth: 0
+          ref: main
+          fetch-depth: 0
 
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
