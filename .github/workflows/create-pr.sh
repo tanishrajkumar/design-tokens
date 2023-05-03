@@ -23,10 +23,11 @@ git add .
 git commit -m "Add new changes"
 
 # Set the remote URL using the access token
-git remote set-url origin https://${GIT_USER_NAME}@github.com/design-tokens
+git remote set-url origin https://${GH_PERSONAL_ACCESS_TOKEN}@github.com/$(git config --get remote.origin.url | sed 's/.*@\(.*\)/\1/')
 
 # Push the new branch
 git push origin $NEW_BRANCH_NAME
 
-# Create a pull request using 'hub'
-hub pull-request -m "$PR_TITLE" -b main -h $NEW_BRANCH_NAME
+# Create a pull request using 'gh'
+gh auth login --with-token <<< "${GH_PERSONAL_ACCESS_TOKEN}"
+gh pr create --title "$PR_TITLE" --base main --head $NEW_BRANCH_NAME
