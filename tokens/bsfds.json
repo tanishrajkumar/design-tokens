@@ -2,7 +2,7 @@
   "color": {
     "base": {
       "white": {
-        "value": "Tanish",
+        "value": "#ffffff",
         "type": "color"
       },
       "concrete": {
@@ -472,7 +472,7 @@
         "value": {
           "color": "{color.teal.900}",
           "width": "1px",
-          "style": "sold"
+          "style": "solid"
         },
         "type": "border"
       },
