@@ -26,6 +26,7 @@ jobs:
               mkdir -p "$directory"
           fi
           cp -r design-tokens/build/** design-system/scss
+          cd design-system
 
       - name: Set up Git user and create PR
         working-directory: design-tokens
