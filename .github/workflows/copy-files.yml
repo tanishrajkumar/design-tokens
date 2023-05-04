@@ -30,20 +30,20 @@ jobs:
           a=$(ls -l)
           echo "${a[0]}"
 
-      - name: Set up Git user and create PR
-        working-directory: design-tokens
-        run: |
-          chmod +x .github/workflows/create-pr.sh
-          bash .github/workflows/create-pr.sh
-        env:
-          GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-          GH_USER_NAME: tanishrajkumar
-          GH_USER_EMAIL: tanishraj.k@bsfdv.com
-          NEW_FEATURE_BRANCH: "feat/style-dictionary"
-          PR_TITLE: "feat: Replacing the style tokens"
-          PR_BODY: "Replacing the style tokens as figma tokens have changed."
-          PR_AUTO_MERGE: "false"
-          WORKING_REPO: "design-system"
+      # - name: Set up Git user and create PR
+      #   working-directory: design-system
+      #   run: |
+      #     chmod +x .github/workflows/create-pr.sh
+      #     bash .github/workflows/create-pr.sh
+      #   env:
+      #     GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+      #     GH_USER_NAME: tanishrajkumar
+      #     GH_USER_EMAIL: tanishraj.k@bsfdv.com
+      #     NEW_FEATURE_BRANCH: "feat/style-dictionary"
+      #     PR_TITLE: "feat: Replacing the style tokens"
+      #     PR_BODY: "Replacing the style tokens as figma tokens have changed."
+      #     PR_AUTO_MERGE: "false"
+      #     WORKING_REPO: "design-system"
 
       # - name: Commit and push changes
       #   working-directory: design-system
