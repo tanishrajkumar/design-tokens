@@ -27,6 +27,8 @@ jobs:
           fi
           cp -r design-tokens/build/** design-system/scss
           cd design-system
+          a=$(ls -l)
+          echo "${a[0]}"
 
       - name: Set up Git user and create PR
         working-directory: design-system
