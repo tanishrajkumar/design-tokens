@@ -12,20 +12,20 @@ jobs:
           repository: tanishrajkumar/design-tokens
           path: design-tokens
 
-      - name: Check out target repository
-        uses: actions/checkout@v3
-        with:
-          repository: tanishrajkumar/design-system
-          path: design-system
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      # - name: Check out target repository
+      #   uses: actions/checkout@v3
+      #   with:
+      #     repository: tanishrajkumar/design-system
+      #     path: design-system
+      #     token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
-      - name: Copy folder
-        run: |
-          directory="design-system/scss"
-          if [ ! -d "$directory" ]; then
-              mkdir -p "$directory"
-          fi
-          cp -r design-tokens/build/** design-system/scss
+      # - name: Copy folder
+      #   run: |
+      #     directory="design-system/scss"
+      #     if [ ! -d "$directory" ]; then
+      #         mkdir -p "$directory"
+      #     fi
+      #     cp -r design-tokens/build/** design-system/scss
 
       - name: Set up Git user and create PR
         # working-directory: design-system
