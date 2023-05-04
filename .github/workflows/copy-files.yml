@@ -24,7 +24,7 @@ jobs:
           cp -r design-tokens/build design-system
 
       - name: Commit and push changes
-        working-directory: target-repo
+        working-directory: design-system
         run: |
           git config --global user.name "tanishrajkumar"
           git config --global user.email "tanishraj.k@bsfdv.com"
