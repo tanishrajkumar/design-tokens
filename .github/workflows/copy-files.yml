@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out source repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: tanishrajkumar/design-tokens
           path: design-tokens
 
       - name: Check out target repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: tanishrajkumar/design-system
           path: design-system
