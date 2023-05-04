@@ -43,6 +43,7 @@ jobs:
           PR_TITLE: "feat: figma design tokens changes"
           PR_BODY: "Figma design tokens are updated."
           PR_AUTO_MERGE: "true"
+          WORKING_REPO: "design-tokens"
 
   slackNotification:
     name: Slack Notification

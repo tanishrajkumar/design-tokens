@@ -12,7 +12,7 @@ git add .
 git commit -m "Add new changes"
 
 # Set the remote URL using the access token
-git remote set-url origin https://${GH_TOKEN}@github.com/tanishrajkumar/design-tokens/
+git remote set-url origin https://${GH_TOKEN}@github.com/tanishrajkumar/${WORKING_REPO}/
 
 # Push the new branch
 git push -f origin ${NEW_FEATURE_BRANCH}
