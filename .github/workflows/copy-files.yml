@@ -10,18 +10,18 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: tanishrajkumar/design-tokens
-          path: https://github.com/tanishrajkumar/design-tokens.git
+          path: design-tokens
 
       - name: Check out target repository
         uses: actions/checkout@v2
         with:
           repository: tanishrajkumar/design-system
-          path: https://github.com/tanishrajkumar/design-system.git
+          path: design-system
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       - name: Copy folder
         run: |
-          cp -r source-repo/your-source-folder target-repo/your-target-folder
+          cp -r design-tokens/build design-system
 
       - name: Commit and push changes
         working-directory: target-repo
