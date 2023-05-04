@@ -39,6 +39,9 @@ jobs:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           GH_USER_NAME: tanishrajkumar
           GH_USER_EMAIL: tanishraj.k@bsfdv.com
+          NEW_FEATURE_BRANCH: "feat/style-dictionary"
+          PR_TITLE: "feat: figma design tokens changes"
+          PR_BODY: "Figma design tokens are updated."
 
   slackNotification:
     name: Slack Notification
