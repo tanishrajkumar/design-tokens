@@ -32,7 +32,7 @@ jobs:
           git config --global user.email "tanishraj.k@bsfdv.com"
           NEW_BRANCH_NAME="copy-folder"
           BRANCH_EXISTS=$(git branch --list $NEW_BRANCH_NAME)
-          if [ -z "$branch_exists" ]; then
+          if [ -z "$BRANCH_EXISTS" ]; then
             git checkout -b $NEW_BRANCH_NAME
           else
             git checkout $NEW_BRANCH_NAME
