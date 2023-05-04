@@ -1,0 +1,33 @@
+name: Copy Folder to Design System Repo
+
+on: workflow_dispatch
+
+jobs:
+  copy-files-to-mono-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+        with:
+          repository: tanishrajkumar/design-tokens
+          path: https://github.com/tanishrajkumar/design-tokens.git
+
+      - name: Check out target repository
+        uses: actions/checkout@v2
+        with:
+          repository: tanishrajkumar/design-system
+          path: https://github.com/tanishrajkumar/design-system.git
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Copy folder
+        run: |
+          cp -r source-repo/your-source-folder target-repo/your-target-folder
+
+      - name: Commit and push changes
+        working-directory: target-repo
+        run: |
+          git config --global user.name "tanishrajkumar"
+          git config --global user.email "tanishraj.k@bsfdv.com"
+          git add .
+          git commit -m "Copy folder from source repository"
+          git push
