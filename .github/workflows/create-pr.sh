@@ -2,7 +2,6 @@
 
 # Set the new branch name and PR title
 NEW_FEATURE_BRANCH="new-feature-branch"
-PR_TITLE=${GH_PR_TITLE}
 PR_BODY="Figma tokens has been updated"
 
 # Configure Git
@@ -24,7 +23,7 @@ git push -f origin $NEW_FEATURE_BRANCH
 
 # Create a pull request using 'gh'
 gh auth login --with-token <<< "${GH_TOKEN}"
-gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $NEW_FEATURE_BRANCH
+gh pr create --title --body "$PR_BODY" --base main --head $NEW_FEATURE_BRANCH
 
 # merge the pull request
 PR_NUMBER=$(gh pr list --state open --base main --head "$(git symbolic-ref --short HEAD)" --json number -q '.[0].number')
