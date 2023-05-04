@@ -31,13 +31,8 @@ jobs:
           git config --global user.name "tanishrajkumar"
           git config --global user.email "tanishraj.k@bsfdv.com"
           NEW_BRANCH_NAME="copy-folder"
-          BRANCH_EXISTS=$(git branch --list $NEW_BRANCH_NAME)
-          if [ -z "$BRANCH_EXISTS" ]; then
-            git checkout -b $NEW_BRANCH_NAME
-          else
-            git push origin --delete $NEW_BRANCH_NAME
-            git checkout -b $NEW_BRANCH_NAME
-          fi
+
+          git checkout -b $NEW_BRANCH_NAME
           git add .
           git commit -m "Copy folder from source repository"
           git push -u origin $NEW_BRANCH_NAME
