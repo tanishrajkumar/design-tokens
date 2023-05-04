@@ -19,7 +19,7 @@ jobs:
           path: design-system
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
-      - name: Copy folder
+      - name: Copy folder and create PR
         run: |
           directory="design-system/scss"
           if [ ! -d "$directory" ]; then
@@ -27,29 +27,15 @@ jobs:
           fi
           cp -r design-tokens/build/** design-system/scss
           cd design-system
-          a=$(ls -l)
-          echo "${a[0]}"
 
-      # - name: Set up Git user and create PR
-      #   working-directory: design-system
-      #   run: |
-      #     chmod +x .github/workflows/create-pr.sh
-      #     bash .github/workflows/create-pr.sh
-      #   env:
-      #     GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-      #     GH_USER_NAME: tanishrajkumar
-      #     GH_USER_EMAIL: tanishraj.k@bsfdv.com
-      #     NEW_FEATURE_BRANCH: "feat/style-dictionary"
-      #     PR_TITLE: "feat: Replacing the style tokens"
-      #     PR_BODY: "Replacing the style tokens as figma tokens have changed."
-      #     PR_AUTO_MERGE: "false"
-      #     WORKING_REPO: "design-system"
-
-      # - name: Commit and push changes
-      #   working-directory: design-system
-      #   run: |
-      #     git config --global user.name "tanishrajkumar"
-      #     git config --global user.email "tanishraj.k@bsfdv.com"
-      #     git add .
-      #     git commit -m "Copy folder from source repository"
-      #     git push
+          git config --global user.name "tanishrajkumar"
+          git config --global user.email "tanishraj.k@bsfdv.com"
+          NEW_BRANCH_NAME="copy-folder"
+          git checkout -b $NEW_BRANCH_NAME
+          git add .
+          git commit -m "Copy folder from source repository"
+          git push -u origin $NEW_BRANCH_NAME
+          echo ${{ secrets.REPO_ACCESS_TOKEN }} | gh auth login --with-token
+          PR_TITLE="Copy folder from source repository"
+          PR_BODY="This PR adds a folder from the source repository."
+          gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $NEW_BRANCH_NAME
