@@ -28,7 +28,7 @@ jobs:
           cp -r design-tokens/build/** design-system/scss
 
       - name: Set up Git user and create PR
-        working-directory: design-system
+        # working-directory: design-system
         run: |
           chmod +x .github/workflows/create-pr.sh
           bash .github/workflows/create-pr.sh
