@@ -42,6 +42,7 @@ jobs:
           NEW_FEATURE_BRANCH: "feat/style-dictionary"
           PR_TITLE: "feat: figma design tokens changes"
           PR_BODY: "Figma design tokens are updated."
+          PR_AUTO_MERGE: "true"
 
   slackNotification:
     name: Slack Notification
