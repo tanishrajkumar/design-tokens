@@ -29,5 +29,5 @@ gh pr create --fill --base main --head $NEW_FEATURE_BRANCH
 # merge the pull request
 PR_NUMBER=$(gh pr list --state open --base main --head "$(git symbolic-ref --short HEAD)" --json number -q '.[0].number')
 echo "Pull request number: $PR_NUMBER"
-gh pr merge $PR_NUMBER --squash -d
+# gh pr merge $PR_NUMBER --squash -d
 
