@@ -45,7 +45,7 @@ jobs:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           GH_USER_NAME: tanishrajkumar
           GH_USER_EMAIL: tanishraj.k@bsfdv.com
-          GH_PR_TITLE: $COMMIT_MESSAGE
+          GH_PR_TITLE: ${{COMMIT_MESSAGE}}
 
   slackNotification:
     name: Slack Notification
