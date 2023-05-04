@@ -21,7 +21,7 @@ jobs:
 
       - name: Copy folder
         run: |
-          cp -r design-tokens/build design-system
+          cp -r design-tokens/build/** design-system/scss
 
       - name: Commit and push changes
         working-directory: design-system
