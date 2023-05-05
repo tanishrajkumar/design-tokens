@@ -30,13 +30,11 @@ jobs:
 
           git config --global user.name "tanishrajkumar"
           git config --global user.email "tanishraj.k@bsfdv.com"
-          NEW_BRANCH_NAME="origin/copy-folder"
+          NEW_BRANCH_NAME="copy-folder"
 
-          git fetch
           git checkout $NEW_BRANCH_NAME
           git add .
           git commit -m "Copy folder from source repository"
-          git pull origin develop
           git push origin $NEW_BRANCH_NAME
           echo ${{ secrets.REPO_ACCESS_TOKEN }} | gh auth login --with-token
           PR_TITLE="Copy folder from source repository"
