@@ -32,9 +32,10 @@ jobs:
           git config --global user.email "tanishraj.k@bsfdv.com"
           NEW_BRANCH_NAME="copy-folder"
 
-          git checkout -b $NEW_BRANCH_NAME
+          git checkout $NEW_BRANCH_NAME
           git add .
           git commit -m "Copy folder from source repository"
+          git pull origin develop
           git push -u origin $NEW_BRANCH_NAME
           echo ${{ secrets.REPO_ACCESS_TOKEN }} | gh auth login --with-token
           PR_TITLE="Copy folder from source repository"
