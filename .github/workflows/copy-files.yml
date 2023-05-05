@@ -34,9 +34,9 @@ jobs:
 
           git checkout $NEW_BRANCH_NAME
           git add .
-          git commit -m "Copy folder from source repository"
+          git commit -m "copy style token files"
           git push origin $NEW_BRANCH_NAME
           echo ${{ secrets.REPO_ACCESS_TOKEN }} | gh auth login --with-token
-          PR_TITLE="Copy folder from source repository"
+          PR_TITLE="reafctor: copy style token files"
           PR_BODY="This PR adds a folder from the source repository."
           gh pr create --title "$PR_TITLE" --body "$PR_BODY" --base main --head $NEW_BRANCH_NAME
