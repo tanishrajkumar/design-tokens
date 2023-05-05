@@ -30,7 +30,7 @@ jobs:
 
           git config --global user.name "tanishrajkumar"
           git config --global user.email "tanishraj.k@bsfdv.com"
-          NEW_BRANCH_NAME="copy-folder"
+          NEW_BRANCH_NAME="origin/copy-folder"
 
           git fetch
           git checkout $NEW_BRANCH_NAME
